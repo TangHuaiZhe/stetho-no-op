@@ -1,0 +1,32 @@
+apply plugin: 'com.android.library'
+version = "1.1"
+
+def sdkVersion = 24
+def toolsVersion = "27.0.3"
+
+android {
+    compileSdkVersion sdkVersion
+    buildToolsVersion toolsVersion
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion sdkVersion
+        versionCode 2
+        versionName version
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    lintOptions {
+        warning 'InvalidPackage'
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+}
+
