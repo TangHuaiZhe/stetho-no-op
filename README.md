@@ -3,7 +3,7 @@
 
 
 如何引入：
-
+```
     allprojects {
     		repositories {
     			...
@@ -18,5 +18,7 @@
             releaseCompile 'com.github.TangHuaiZhe:stetho-no-op:1.0'
     }
     
+```
 
-
+防止混淆:
+```-keep class com.facebook.stetho.**{*;}```
